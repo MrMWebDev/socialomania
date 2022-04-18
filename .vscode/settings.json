@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3300,
+            "driver": "MySQL",
+            "name": "socialomania",
+            "database": "socialomania",
+            "username": "admin",
+            "password": "Tihanymar!0"
+        }
+    ]
+}
