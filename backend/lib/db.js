@@ -1,12 +1,10 @@
-// lib/db.js
-
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'node-jwt',
-  database: 'node-jwt',
-  password: '********'
+  user: 'root',
+  database: 'socialomania',
+  password: 'Tihanymari0'
 });
 
 connection.connect();
