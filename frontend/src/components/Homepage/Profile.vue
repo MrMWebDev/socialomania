@@ -158,8 +158,11 @@ export default {
         margin-left: 30%;
     }
 @media screen and (min-width: 200px) and (max-width: 640px) {
-  #profile {
-    padding-left: 10%;
-  }
+    #profile {
+        padding-left: 10%;
+        background-image: url("../../assets/images/buildings.jpg");
+        background-size: cover;
+        height: 100%;
+    }
 }
 </style>

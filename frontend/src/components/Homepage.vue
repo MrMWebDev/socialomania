@@ -48,7 +48,7 @@ export default {
 </script>
 <style lang="scss">
     #Homepage{
-        background: no-repeat center top/60% url("../assets/images/building.png");
+        background: no-repeat center top/50% url("../assets/images/building.png");
         background-size: cover;
         display: flex;
         flex-direction: row;
@@ -56,7 +56,7 @@ export default {
     }
     #carousel{
         width: 60%;
-        margin-top: 17%;
+        margin-top: 10%;
         margin-left: 20%;
     }
     .header{
@@ -67,9 +67,12 @@ export default {
     #carousel {
     padding-right: 15%;
     width: 80%;
+    margin-top: 20%;
+    margin-left: 20%;
     } 
     #Homepage{
-    background: no-repeat center top/70% url("../assets/icon-left-font-monochrome-black.png") ;
+    background: no-repeat center top/80% url("../assets/SocialomaniaBlack.png") ;
+    background-color: #ababaa;
   }
 }
         
