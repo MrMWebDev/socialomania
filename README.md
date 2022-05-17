@@ -3,9 +3,9 @@
 Download the repository and follow the instructions below to install this project locally
 
 ## prerequisite
--Installer Node.js
--Installer Vue.js
--Installer MySQL
+- Installer Node.js
+- Installer Vue.js
+- Installer MySQL
 
 ## MySQL database
 - Ouvrez votre terminal
@@ -15,3 +15,13 @@ Download the repository and follow the instructions below to install this projec
 - Utilisez la base de données créée : USE groupomania_database
 - Importez le fichier groupomania_database.sql : SOURCE groupomania_database.sql;
 - Dans le dossier backend, allez dans le fichier connectdb.js et renseignez votre mot de passe dans password:'xxxxxx'
+
+## Installing and starting the Backend
+- Open your terminal Go to the frontend folder: cd socialomania/backend
+-  Install all project dependencies: npm install 
+-  Start the application: nodemon server
+
+## Installing and starting the Frontend
+- Open your terminal Go to the frontend folder: cd socialomania/frontend 
+- Install all project dependencies: npm install 
+- Start the application: npm run serve
