@@ -1,11 +1,11 @@
 # Project n°7 OpenClassrooms - Groupomania
-## Creation of a internal social network for Groupomania in this case called Socialomania
+## Creation of a internal social network for Groupomania, in this case called Socialomania
 Download the repository and follow the instructions below to install this project locally
 
-## prerequisite
-- Installer Node.js
-- Installer Vue.js
-- Installer MySQL
+## required
+- Node.js
+- Vue.js
+- MySQL
 
 ## MySQL database
 - Open your terminal
@@ -17,7 +17,7 @@ Download the repository and follow the instructions below to install this projec
 - In the backend folder, go to the connectdb.js file and fill in your password in password:'xxxxxx'
 
 ## Installing and starting the Backend
-- Open your terminal Go to the frontend folder: cd socialomania/backend
+- Open your terminal Go to the backtend folder: cd socialomania/backend
 -  Install all project dependencies: npm install 
 -  Start the application: nodemon server
 
