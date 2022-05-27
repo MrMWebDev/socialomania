@@ -13,7 +13,7 @@
                         </v-card-title>
 
                         <v-card-subtitle class=" forum__post__name">
-                            By {{ post.firstName }} {{ post.lastName }}, the {{ post.date }}
+                            By {{ post.firstName }} {{ post.lastName }} {{ post.date }}
                         </v-card-subtitle>
 
                         <v-card-text class="v-card-text black--text forum__post__content" >
@@ -30,7 +30,7 @@
                 <div v-if="showComments">
                     <v-card class="forum__comments--ind my-1 mx-2 pa-0" color="#ECECEC" v-for="(comment, index) in allComments" v-bind:key="index" outlined>
                         <v-card-subtitle class=" pb-0 forum__comments__name">
-                            Le {{ comment.date }}, {{ comment.firstName }} {{ comment.lastName }} comment :
+                            {{ comment.date }} {{ comment.firstName }} {{ comment.lastName }} comment :
                         </v-card-subtitle>
 
                         <v-card-text class="text--primary forum__comments__content ">

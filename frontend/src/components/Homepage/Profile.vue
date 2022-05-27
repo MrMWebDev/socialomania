@@ -1,8 +1,12 @@
 <template>
-    <div id="profile" class="d-flex justify-center">
+    <div id="profile" class="d-flex justify-center align-content-center">
         <top-header/>
-        <v-card class="ma-12" raised>
-            <v-img class="logo" src="../../assets/user_avatar.png" width="100px" contain></v-img>
+        <v-card class="profCard" height="60%" raised responcive>
+            
+                <parentComp/>
+                <!-- <img src="../../assets/images/avatar.png" alt="Avatar"> -->
+            
+            <component v-bind:is="parentComp"><component v-bind:is="ImageInput"></component></component>
             <v-card-title class="my-3 justify-center">
                 <h1>My profile</h1>
             </v-card-title>
@@ -13,7 +17,7 @@
                 <p>E-mail : {{ dataGet.email }}</p>
             </v-card-text>
 
-            <v-card-actions class="d-flex justify-space-between">
+            <v-card-actions class="d-flex justify-space-around">
                 <v-btn @click.stop="dialogUp=true" title="modify my information">Modify</v-btn>
                 <v-btn @click.stop="dialogDel=true" title="delete my profile" color="#b85861">Delete</v-btn>
             </v-card-actions>
@@ -62,6 +66,8 @@
 <script>
 
 import TopHeader from "./TopHeader"
+import parentComp from "./imgUp/parentComp"
+import ImageInput from "./imgUp/ImageInput"
 import axios from "axios"
 
 export default {
@@ -96,6 +102,7 @@ export default {
                 v => !!v || 'Enter your e-mail',
                 v => /.+@.+\..+/.test(v) || "Your email is invalid",
             ],
+            component: ""
         }
     },
     methods: {
@@ -147,21 +154,36 @@ export default {
     
     components: {
         "top-header": TopHeader,
+        "ImageInput": ImageInput,
+        "parentComp": parentComp
 
     }
 }
 </script>
 
 <style lang="scss">
+    .profCard {
+        margin-top: 20%;
+
+    }
     .logo{
         margin-top: 5%;
         margin-left: 30%;
     }
+    #profile {
+        background: no-repeat center url("../../assets/images/building.png");
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
 @media screen and (min-width: 200px) and (max-width: 640px) {
     #profile {
         padding-left: 10%;
-        background-image: url("../../assets/images/buildings.jpg");
+        background: no-repeat center url("../../assets/images/buildings.jpg");
         background-size: cover;
+        display: flex;
+        flex-direction: row;
         height: 100%;
     }
 }

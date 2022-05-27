@@ -1,15 +1,16 @@
 <template>
     <v-app id="formPost">
         <top-header/>
-        <h1 class="ml-12">Forum</h1>
-        <v-card class="ma-3 ml-12">
-            <v-card-title class="mb-3">
+        <h1 class="ml-12 white--text">Forum</h1>
+        <v-card class="formPostCard mx-12 ml-16">
+            <v-card-title class="m-3">
                 <h2>New post</h2>
             </v-card-title>
             
             <v-card-text>
                 <v-form ref="form" class="ma-3" v-model="valid" >
                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title" autofocus required></v-text-field>
+                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" label="Image" class="mt-3"></v-file-input>
                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Message" required></v-textarea>
                 </v-form>
             </v-card-text>
@@ -43,6 +44,7 @@ export default {
             ],
             dataPost:{
                 title: "",
+                imageUrl: "null",
                 content:"",
                 userId: localStorage.userId
             },
@@ -77,5 +79,23 @@ export default {
 }
 </script>
 <style lang="scss">
-
+    #formPost {
+        background: no-repeat center url("../../assets/images/building.png");
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+    .formPostCard {
+        margin-top: 20vh;
+    }
+    @media screen and (min-width: 200px) and (max-width: 640px) {
+    #formPost {
+        background: no-repeat center url("../../assets/images/buildings.jpg");
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+    }
 </style>

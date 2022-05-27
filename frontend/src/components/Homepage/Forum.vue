@@ -3,12 +3,12 @@
 
         <top-header/>
         <div class="ml-12">
-            <h1 class="ma-4">Forum</h1>
+            <h1 class="ma-4 white--text">Forum</h1>
             
 
             <router-view></router-view>
             <v-container >
-                <v-btn class="ma-3" color="black white--text" @click="postForm">Create a post</v-btn>
+                <v-btn class="ma-3" color="primary white--text" dark @click="postForm">Create a post</v-btn>
                 
                 <v-card class="forum__post ma-3 mt-6" v-for="(post, index) in allPosts" v-bind:key="index">
                     <div class="d-flex justify-space-between">
@@ -54,6 +54,7 @@
                             <v-card-text>
                                 <v-form ref="form" v-model="valid">
                                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title"></v-text-field>
+                                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" multiple label="File input" ></v-file-input>
                                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Comment"></v-textarea>
                                 </v-form>
                             </v-card-text>
@@ -144,6 +145,7 @@ export default {
             dataPost: {
                 id: "",
                 title:"",
+                imageUrl:"",
                 content:"",
                 userId:"",
             },
@@ -332,5 +334,21 @@ export default {
                 position: relative;
             }
         }
-   }
+    }
+    #forum {
+        background: no-repeat center url("../../assets/images/building.png");
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+    @media screen and (min-width: 200px) and (max-width: 640px) {
+    #forum {
+        background: no-repeat center url("../../assets/images/buildings.jpg");
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+    }
 </style>

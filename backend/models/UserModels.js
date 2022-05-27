@@ -11,7 +11,7 @@ class UserModels {
         sql = mysql.format(sql, sqlInserts);
         return new Promise((resolve, reject) =>{
             connectdb.query(sql, function(err, result){
-                if (err) reject({error : 'Erreur dans l\'inscription'});
+                if (err) reject({error : 'Error in registration'});
                 resolve({message : 'New user!'})
             })
         })
@@ -64,7 +64,7 @@ class UserModels {
         return new Promise((resolve, reject) =>{
             connectdb.query(sql, function(err, result){
                 if (err) return reject({error : 'function not available'});
-                resolve({message : 'updated information!'});
+                resolve({message : 'Information updated!'});
             }) 
 
         })

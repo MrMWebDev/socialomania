@@ -1,12 +1,14 @@
 <template>
     <v-app id="auth">
-        
+        <header class="authHeader">
+            <img class="header-logo" src="../assets/SocialomaniaBlack.png" alt="socialomania">
+        </header>
         <v-container class="auth">
             
 
             <div class="auth__boutons">
-                <v-btn class="auth__boutons--ind" color="black white--text" @click="component='signup'" rounded>Register</v-btn>
-                <v-btn class="auth__boutons--ind" color="black white--text white--hover" @click="component='login'" rounded>Log in</v-btn>
+                <v-btn class="auth__boutons--ind" color="primary white--text" @click="component='signup'" rounded>Register</v-btn>
+                <v-btn class="auth__boutons--ind" color="primary white--text white--hover" @click="component='login'" rounded>Log in</v-btn>
             </div>
             
             <component v-bind:is="component"></component>
@@ -39,12 +41,24 @@
 
 <style lang="scss">
     #auth {
-        background: no-repeat center top/80% url("../assets/SocialomaniaBlack.png") ;
+        background: no-repeat center url("../assets/images/building.png") ;
+        background-size: cover;
         display: flex;
         flex-direction: row;
-
+        height: 100%;
+    }
+    .header-logo{
+        height: 95%;
+        
+    }
+    .authHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .auth {
+        margin-top: 0%;
         &__boutons{
             display: flex;
             flex-direction: row;
@@ -53,10 +67,19 @@
             margin-top: 15%;
             margin-bottom: 2%;
             &--ind{
-                margin-top: 5%;
+                // margin-top: 5%;
                 width: 150px ;
                 
             }
+        }
+    }
+    @media screen and (min-width: 200px) and (max-width: 640px) {
+        #auth {
+            background: no-repeat center url("../assets/images/buildings.jpg") ;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
     }
     

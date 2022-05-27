@@ -11,9 +11,9 @@
             :show-arrows="false"
             >
             <v-carousel-item
-              v-for="(item,i) in items"
-              :key="i"
-              :src="item.src"
+                v-for="(item,i) in items"
+                :key="i"
+                :src="item.src"
             ></v-carousel-item>
         </v-carousel>      
 
@@ -48,15 +48,15 @@ export default {
 </script>
 <style lang="scss">
     #Homepage{
-        background: no-repeat center top/50% url("../assets/images/building.png");
+        background: no-repeat center url("../assets/images/building.png");
         background-size: cover;
         display: flex;
         flex-direction: row;
-        
+        height: 100%;
     }
     #carousel{
         width: 60%;
-        margin-top: 10%;
+        margin-top: 30vh;
         margin-left: 20%;
     }
     .header{
@@ -67,13 +67,16 @@ export default {
     #carousel {
     padding-right: 15%;
     width: 80%;
-    margin-top: 20%;
+    margin-top: 35vh;
     margin-left: 20%;
     } 
     #Homepage{
-    background: no-repeat center top/80% url("../assets/SocialomaniaBlack.png") ;
-    background-color: #ababaa;
-  }
+    background: no-repeat center url("../assets/images/buildings.jpg") ;
+    background-size: cover;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
 }
         
     
