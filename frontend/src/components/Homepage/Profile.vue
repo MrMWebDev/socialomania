@@ -1,12 +1,10 @@
 <template>
     <div id="profile" class="d-flex justify-center align-content-center">
         <top-header/>
-        <v-card class="profCard" height="60%" raised responcive>
+        <v-card class="profCard" height="70%" raised>
             
-                <parentComp/>
-                <!-- <img src="../../assets/images/avatar.png" alt="Avatar"> -->
+            <ImageUpload/>
             
-            <component v-bind:is="parentComp"><component v-bind:is="ImageInput"></component></component>
             <v-card-title class="my-3 justify-center">
                 <h1>My profile</h1>
             </v-card-title>
@@ -66,8 +64,7 @@
 <script>
 
 import TopHeader from "./TopHeader"
-import parentComp from "./imgUp/parentComp"
-import ImageInput from "./imgUp/ImageInput"
+import ImageUpload from "./imgUp/ImageUpload"
 import axios from "axios"
 
 export default {
@@ -154,8 +151,7 @@ export default {
     
     components: {
         "top-header": TopHeader,
-        "ImageInput": ImageInput,
-        "parentComp": parentComp
+        "ImageUpload": ImageUpload
 
     }
 }
@@ -163,7 +159,7 @@ export default {
 
 <style lang="scss">
     .profCard {
-        margin-top: 20%;
+        margin-top: 15%;
 
     }
     .logo{

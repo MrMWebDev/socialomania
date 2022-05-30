@@ -9,7 +9,7 @@
         ref="file"
         :name="uploadFieldName"
         @change="onFileChange(
-            $event.target.name, $event.target.files)"
+            $event.target.name, $event.target.files[0])"
         style="display:none">
         <!-- error dialog displays any potential error messages -->
         <v-dialog v-model="errorDialog" max-width="300">

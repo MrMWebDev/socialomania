@@ -4,8 +4,6 @@
             <img class="header-logo" src="../assets/SocialomaniaBlack.png" alt="socialomania">
         </header>
         <v-container class="auth">
-            
-
             <div class="auth__boutons">
                 <v-btn class="auth__boutons--ind" color="primary white--text" @click="component='signup'" rounded>Register</v-btn>
                 <v-btn class="auth__boutons--ind" color="primary white--text white--hover" @click="component='login'" rounded>Log in</v-btn>
@@ -58,7 +56,6 @@
         align-items: center;
     }
     .auth {
-        margin-top: 0%;
         &__boutons{
             display: flex;
             flex-direction: row;

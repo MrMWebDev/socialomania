@@ -87,6 +87,7 @@ exports.modifyAvatar = (req, res, next) => {
                 }
                 // RECOVER THE INFORMATION SENT BY THE FRONT 
                 let image = (req.file) ? `${req.protocol}://${req.get('host')}/images/profile/${req.file.filename}` : "";
+                console.log(image);
                 // UPDATE LA DB
                 let sql2 = `UPDATE user
                 SET avatar = ?

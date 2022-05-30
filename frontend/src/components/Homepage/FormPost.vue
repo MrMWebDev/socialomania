@@ -10,7 +10,7 @@
             <v-card-text>
                 <v-form ref="form" class="ma-3" v-model="valid" >
                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title" autofocus required></v-text-field>
-                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" label="Image" class="mt-3"></v-file-input>
+                    <upload-image/>
                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Message" required></v-textarea>
                 </v-form>
             </v-card-text>
@@ -27,7 +27,7 @@
 <script>
 import axios from "axios"
 import TopHeader from "./TopHeader"
-
+import UploadImage from "../../components/UploadImage";
 
 export default {
     name: "FormPost",
@@ -71,9 +71,13 @@ export default {
                     this.msg = true
                 });
         },
+        upload(event) {
+            this.image = event.target.files[0];
+        },
     },
     components: {
-        "top-header": TopHeader, 
+        "top-header": TopHeader,
+        "upload-image": UploadImage,
         
     },
 }

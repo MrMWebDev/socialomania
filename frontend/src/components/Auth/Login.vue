@@ -1,5 +1,5 @@
 <template>
-    <v-app class="login ma-auto mt-6">
+    <v-app class="login ma-auto" justify-content-center>
         <v-card raised>
             <v-card-text>
                 <v-form ref="form" v-model="valid">
