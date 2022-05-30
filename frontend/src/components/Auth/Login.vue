@@ -1,5 +1,5 @@
 <template>
-    <v-app class="login ma-auto" justify-content-center>
+    <v-app class="login ma-auto mt-6">
         <v-card raised>
             <v-card-text>
                 <v-form ref="form" v-model="valid">
@@ -8,7 +8,7 @@
                 </v-form>
             </v-card-text>
             
-            <v-btn :disabled="!valid" class="success mb-3" @click="sendLogin()">Confirm</v-btn>
+            <v-btn :disabled="!valid" class="primary mb-3" rounded @click="sendLogin()">Confirm</v-btn>
             <p v-if="msg">{{ message }}</p>
             
         </v-card>

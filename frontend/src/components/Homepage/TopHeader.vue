@@ -5,7 +5,7 @@
             color="#182a48"
             expand-on-hover
             mini-variant
-            mini-variant-width=45
+            mini-variant-width=40
             bottom
             permanent
             absolute
@@ -79,7 +79,7 @@ export default {
             localStorage.userId = "";
             localStorage.token = "";
             localStorage.moderation = "";
-             this.$router.push('/');
+            this.$router.push('/');
         },
         moderation(){
             this.$router.push('/Homepage/Moderation')

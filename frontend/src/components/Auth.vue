@@ -4,6 +4,7 @@
             <img class="header-logo" src="../assets/SocialomaniaBlack.png" alt="socialomania">
         </header>
         <v-container class="auth">
+            
             <div class="auth__boutons">
                 <v-btn class="auth__boutons--ind" color="primary white--text" @click="component='signup'" rounded>Register</v-btn>
                 <v-btn class="auth__boutons--ind" color="primary white--text white--hover" @click="component='login'" rounded>Log in</v-btn>
@@ -39,7 +40,7 @@
 
 <style lang="scss">
     #auth {
-        background: no-repeat center url("../assets/images/building.png") ;
+        background: no-repeat center center url("../assets/images/building.png") ;
         background-size: cover;
         display: flex;
         flex-direction: row;
@@ -56,6 +57,7 @@
         align-items: center;
     }
     .auth {
+        
         &__boutons{
             display: flex;
             flex-direction: row;
@@ -75,7 +77,7 @@
             background: no-repeat center url("../assets/images/buildings.jpg") ;
             background-size: cover;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             height: 100%;
         }
     }

@@ -6,6 +6,22 @@ const UserModels = require ('../Models/UserModels.js')
 
 let userModels = new UserModels();
 
+exports.setAvatar = (req, res, next) => {
+    let sql = 'UPDATE users SET avatar = ?';
+    console.log(req.file);
+    sql = mysql.format(sql, req.file.path);
+
+    return new Promise((resolve, reject) => {
+        connectdb.query(sql, function (err, result) {
+            if (err) console.log(err);
+            resolve({
+                message: 'Avatar updated successfully',
+            })
+        })
+    }).then(result => {
+        res.status(200).json(result);
+    })
+};
 
 exports.signup = (req, res, next) => {
     let email = req.body.email;

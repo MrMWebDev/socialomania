@@ -6,10 +6,13 @@ const app = express();
 const routesPosts = require('./routes/routesPosts');
 const routesUsers = require('./routes/routesUsers');
 const routesMod = require('./routes/routesMod');
+const path = require('path')
 
 app.use(xss());
 app.use (helmet()); 
 app.use(bodyParser.json());
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

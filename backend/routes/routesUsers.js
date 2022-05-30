@@ -8,12 +8,12 @@ const multerUser = require('../middleware/multerUser');
 const userCtrl = require('../controllers/user');
 
 try{
-    router.post('/signup', multerUser, userCtrl.signup);
+    router.post('/signup', userCtrl.signup);
     router.post('/login', userCtrl.login);
     router.get('/', auth, userCtrl.seeMyProfile);
     router.delete('/', auth, userCtrl.deleteUser);
     router.put('/', auth, userCtrl.updateUser);
-    router.put('/', auth,multerUser, userCtrl.modifyAvatar);
+    router.put('/', auth,multerUser, userCtrl.setAvatar);
 }catch (error){
     console.log(error);
 }

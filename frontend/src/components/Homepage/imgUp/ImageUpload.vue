@@ -3,10 +3,10 @@
         <v-container grid-list-xl>
         <image-input v-model="avatar">
             <div slot="activator">
-            <v-avatar size="120px" v-ripple v-if="!avatar" class="grey lighten-3 mb-3">
+            <v-avatar size="100px" v-ripple v-if="!avatar" class="grey lighten-3 mb-3">
                 <span>Click to add avatar</span>
             </v-avatar>
-            <v-avatar size="120px" v-ripple v-else class="mb-3">
+            <v-avatar size="100px" v-ripple v-else class="mb-3">
                 <img :src="avatar.imageURL" alt="avatar">
             </v-avatar>
             </div>
@@ -24,7 +24,7 @@
 <script>
 import ImageInput from './ImageInput.vue'
 export default {
-    name: 'ImageUpload',
+    name: 'image-upload',
     data () {
         return {
         avatar: null,
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-#app {
+#ImageUpload {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

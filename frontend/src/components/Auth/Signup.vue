@@ -9,24 +9,24 @@
                     <v-text-field  v-model="dataSignup.password" :rules="passRules" error-count="4" type="password" label="Password" prepend-icon="mdi-lock-outline" color="black" required></v-text-field>
                 </v-form>
                 <template>
-                  <div class="text-center">
-                    <v-dialog v-model="dialog" persistent width="500">
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn :disabled="!valid" class="success" v-bind="attrs" v-on="on">Confirm</v-btn>
-                      </template>
-                      <v-card>
-                        <v-card-title class="text-center">
-                          Your account was created! <br/>
-                          Please log in to access.
-                        </v-card-title>
-                        <v-divider></v-divider>
-                        <v-card-actions>
-                          <v-spacer></v-spacer>
-                          <v-btn @click="sendSignup()" class="success">Confirm</v-btn>
-                        </v-card-actions>
-                      </v-card>
-                    </v-dialog>
-                  </div>
+                    <div class="text-center">
+                        <v-dialog v-model="dialog" persistent width="500">
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn :disabled="!valid" class="primary" rounded v-bind="attrs" v-on="on">Confirm</v-btn>
+                        </template>
+                        <v-card>
+                            <v-card-title class="text-center">
+                            Your account was created! <br/>
+                            Please log in to access.
+                            </v-card-title>
+                            <v-divider></v-divider>
+                            <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn @click="sendSignup()" class="primary" rounded>Confirm</v-btn>
+                            </v-card-actions>
+                        </v-card>
+                        </v-dialog>
+                    </div>
                 </template>
                 <p v-if="msg">{{ message }}</p>
             </v-card-text>

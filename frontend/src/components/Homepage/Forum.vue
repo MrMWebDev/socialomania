@@ -8,7 +8,7 @@
 
             <router-view></router-view>
             <v-container >
-                <v-btn class="ma-3" color="primary white--text" dark @click="postForm">Create a post</v-btn>
+                <v-btn class="ma-3" color="primary white--text" rounded dark @click="postForm">Create a post</v-btn>
                 
                 <v-card class="forum__post ma-3 mt-6" v-for="(post, index) in allPosts" v-bind:key="index">
                     <div class="d-flex justify-space-between">
@@ -37,12 +37,12 @@
 
                     <v-card-text class="py-0">
                         <v-btn icon fab title="Like" class="ma-3" color="green"  @click="likePost(post.id, post.likes)">
-                                <v-icon>mdi-thumb-up</v-icon>
+                                <v-icon color="primary">mdi-thumb-up</v-icon>
                                 {{ post.likes }}
                         </v-btn> 
                             
                         <v-btn text @click="postCom(post.id)" title="View comments">
-                            <v-icon>mdi-comment-eye</v-icon>
+                            <v-icon color="primary">mdi-comment-eye</v-icon>
                             View comments 
                         </v-btn>
                     </v-card-text>
@@ -54,13 +54,13 @@
                             <v-card-text>
                                 <v-form ref="form" v-model="valid">
                                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title"></v-text-field>
-                                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" multiple label="File input" ></v-file-input>
+                                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" label="File input" ></v-file-input>
                                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Comment"></v-textarea>
                                 </v-form>
                             </v-card-text>
                             <v-card-actions>
-                                <v-btn text @click="dialogUpPost=false">Cancel</v-btn>
-                                <v-btn text :disabled="!valid" @click="updatePost()">Confirm</v-btn>
+                                <v-btn text rounded @click="dialogUpPost=false">Cancel</v-btn>
+                                <v-btn text rounded :disabled="!valid" @click="updatePost()">Confirm</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -93,7 +93,7 @@
                             </v-dialog>
                         </v-card>
 
-                        <v-btn v-if="!displaysFrmCm" color="black white--text" title="comment on the post" class="ma-2" @click="postFormCom()">Comment</v-btn>
+                        <v-btn v-if="!displaysFrmCm" rounded color="primary" title="comment on the post" class="ma-2" @click="postFormCom()">Comment</v-btn>
                         
                         
                         <v-card v-if="displaysFrmCm">

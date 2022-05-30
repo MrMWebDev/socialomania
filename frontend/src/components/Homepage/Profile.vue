@@ -3,7 +3,7 @@
         <top-header/>
         <v-card class="profCard" height="70%" raised>
             
-            <ImageUpload/>
+            <image-upload/>
             
             <v-card-title class="my-3 justify-center">
                 <h1>My profile</h1>
@@ -151,7 +151,7 @@ export default {
     
     components: {
         "top-header": TopHeader,
-        "ImageUpload": ImageUpload
+        "image-upload": ImageUpload,
 
     }
 }

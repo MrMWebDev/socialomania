@@ -10,7 +10,6 @@
             <v-card-text>
                 <v-form ref="form" class="ma-3" v-model="valid" >
                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title" autofocus required></v-text-field>
-                    <upload-image/>
                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Message" required></v-textarea>
                 </v-form>
             </v-card-text>
@@ -27,7 +26,6 @@
 <script>
 import axios from "axios"
 import TopHeader from "./TopHeader"
-import UploadImage from "../../components/UploadImage";
 
 export default {
     name: "FormPost",
@@ -77,7 +75,6 @@ export default {
     },
     components: {
         "top-header": TopHeader,
-        "upload-image": UploadImage,
         
     },
 }
