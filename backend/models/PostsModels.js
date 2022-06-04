@@ -67,7 +67,7 @@ class PostsModels {
 
 
     getComments(sqlInserts){
-        let sql = "SELECT comments.comContent, DATE_FORMAT(comments.date, '%d/%m/%Y à %H:%i:%s') AS date, comments.id, comments.userId, users.firstName, users.lastName FROM comments JOIN users on comments.userId = users.id WHERE postId = ? ORDER BY date";
+        let sql = "SELECT comments.comContent, DATE_FORMAT(comments.date, '%d/%m/%Y at %H:%i:%s') AS date, comments.id, comments.userId, users.firstName, users.lastName FROM comments JOIN users on comments.userId = users.id WHERE postId = ? ORDER BY date";
         sql = mysql.format(sql, sqlInserts);
         return new Promise((resolve) =>{
             connectdb.query(sql, function (err, result, fields){

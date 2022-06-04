@@ -40,7 +40,7 @@
 
 <style lang="scss">
     #auth {
-        background: no-repeat center center url("../assets/images/building.png") ;
+        background: no-repeat center url("../assets/images/building.png") ;
         background-size: cover;
         display: flex;
         flex-direction: row;
@@ -48,7 +48,7 @@
     }
     .header-logo{
         height: 95%;
-        
+        width: 80%;
     }
     .authHeader {
         display: flex;

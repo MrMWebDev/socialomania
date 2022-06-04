@@ -1,12 +1,14 @@
 const mysql = require('mysql');
+const env = require('dotenv').config();
 console.log('Connecting to database...');
 let connectdb = mysql.createConnection({ 
-    host: 'localhost',
-    port: '3300',
-    user: 'root', 
-    password: 'password', 
-    database: 'groupomania_database', 
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER, 
+    password: process.env.DB_PASS, 
+    database: process.env.DB_NAME, 
 });
+
 connectdb.connect(function(err) { 
     if (err) throw err;
     console.log('Connected!')

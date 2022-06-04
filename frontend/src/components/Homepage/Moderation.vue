@@ -83,7 +83,7 @@ export default {
                 .then(response => {
                     let rep = JSON.parse(response.data);
                     console.log(rep.message);
-                    window.location.assign('http://localhost:8080/Homepage/Moderation');
+                    window.location.assign('http://localhost:8081/Homepage/Moderation');
 
                 })
                 .catch(error => {
@@ -95,7 +95,7 @@ export default {
                 .then(response => {
                     let rep = JSON.parse(response.data);
                     console.log(rep.message);
-                    window.location.assign('http://localhost:8080/Homepage/Moderation');
+                    window.location.assign('http://localhost:8081/Homepage/Moderation');
                 })
                 .catch(error => {
                     console.log(error);

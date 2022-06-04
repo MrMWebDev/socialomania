@@ -1,6 +1,7 @@
 const connectdb = require('../connectdb.js');
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
+const env = require('dotenv').config();
 const PostsModels = require ('../Models/PostsModels.js')
 
 let postsModels = new PostsModels();
@@ -24,7 +25,7 @@ exports.createPost = (req, res, next) => {
 }
 exports.updatePost = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const decodedToken = jwt.verify(token, process.env.secret_token);
     const userId = decodedToken.userId;
     let title = req.body.title;
     let content = req.body.content;
@@ -42,7 +43,7 @@ exports.updatePost = (req, res, next) => {
 }
 exports.deletePost = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const decodedToken = jwt.verify(token, process.env.secret_token);
     const userId = decodedToken.userId;
     let postId = req.params.id;
     let sqlInserts1 = [postId];
@@ -79,7 +80,7 @@ exports.createComment = (req, res, next) => {
 
 exports.updateComment = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const decodedToken = jwt.verify(token, process.env.secret_token);
     const userId = decodedToken.userId;
     let content = req.body.content;
     let commentId = req.params.id;
@@ -104,7 +105,7 @@ exports.deleteComment = (req, res, next) => {
 }
 exports.deleteComment = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const decodedToken = jwt.verify(token, process.env.secret_token);
     const userId = decodedToken.userId;
     let commentId = req.params.id;
     let sqlInserts1 = [commentId];
@@ -121,7 +122,7 @@ exports.deleteComment = (req, res, next) => {
 
 
 exports.getAllLikes = (req, res, next) =>{
-     postsModels.getAllLikes()
+    postsModels.getAllLikes()
         .then((response) =>{
             res.status(200).json(JSON.stringify(response));
         })

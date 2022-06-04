@@ -13,7 +13,6 @@ try{
     router.get('/', auth, userCtrl.seeMyProfile);
     router.delete('/', auth, userCtrl.deleteUser);
     router.put('/', auth, userCtrl.updateUser);
-    router.put('/', auth,multerUser, userCtrl.setAvatar);
 }catch (error){
     console.log(error);
 }

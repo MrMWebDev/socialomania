@@ -16,10 +16,10 @@
                             <h2 class="forum__post__title ml-0">{{ post.title }}</h2>
                         </v-card-title>
                         <v-card-actions class=" forum__post__manage" v-if="post.userId == userId">
-                            <v-btn class="forum__post__manage--btn" color="black" title="edit the post" @click.stop="goDialogUpPost(post.title, post.content, post.id)" icon>
+                            <v-btn class="forum__post__manage--btn" rounded color="black" title="edit the post" @click.stop="goDialogUpPost(post.title, post.content, post.id)" icon>
                                 <v-icon>mdi-pencil</v-icon>
                             </v-btn>
-                            <v-btn class="forum__post__manage--btn" color="black" title="delete the post" @click="deletePost(post.id)" icon>
+                            <v-btn class="forum__post__manage--btn" rounded color="black" title="delete the post" @click="deletePost(post.id)" icon>
                                 <v-icon>mdi-delete</v-icon>
                             </v-btn> 
                         </v-card-actions>
@@ -27,7 +27,7 @@
                     </div>
 
                     <v-card-subtitle class="forum__post__name">
-                        By {{ post.firstName }} {{ post.lastName }}, the {{ post.date }} to {{ post.time }}
+                        By {{ post.firstName }} {{ post.lastName }}, {{ post.date }} at {{ post.time }}
                     </v-card-subtitle>
 
                     <v-card-text class="v-card-text black--text forum__post__content" >
@@ -54,7 +54,6 @@
                             <v-card-text>
                                 <v-form ref="form" v-model="valid">
                                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title"></v-text-field>
-                                    <v-file-input v-model="dataPost.imageUrl" accept="image/*" label="File input" ></v-file-input>
                                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Comment"></v-textarea>
                                 </v-form>
                             </v-card-text>
@@ -86,8 +85,8 @@
                                         </v-form>
                                     </v-card-text>
                                     <v-card-actions>
-                                        <v-btn text @click="dialogUpCom=false">Cancel</v-btn>
-                                        <v-btn text :disabled="!valid" @click="updateCom()">Confirm</v-btn>
+                                        <v-btn rounded text @click="dialogUpCom=false">Cancel</v-btn>
+                                        <v-btn rounded text :disabled="!valid" @click="updateCom()">Confirm</v-btn>
                                     </v-card-actions>
                                 </v-card>
                             </v-dialog>
@@ -100,7 +99,7 @@
                             <v-form  ref="form" class="ma-3" v-model="valid" v-if="form">
                                 <v-textarea background-color="#ECECEC" color="black" v-model="dataCom.content" :rules="comContentRules" :counter="255" label="Comment" autofocus required></v-textarea>
                             </v-form>
-                            <v-btn :disabled="!valid" class="success ma-2" @click="sendCom(post.id)">Post</v-btn>
+                            <v-btn :disabled="!valid" class="primary ma-2" rounded @click="sendCom(post.id)">Post</v-btn>
                             
                         </v-card>
                     </div>
@@ -203,7 +202,7 @@ export default {
                 .then(response => {
                     let rep = JSON.parse(response.data);
                     console.log(rep.message);
-                    window.location.assign('http://localhost:8080/Homepage/forum');
+                    window.location.assign('http://localhost:8081/Homepage/forum');
                 })
                 .catch(error => {
                     console.log(error);    
@@ -214,7 +213,7 @@ export default {
                 .then(response => {
                     let rep = JSON.parse(response.data);
                     console.log(rep.message);
-                    window.location.assign('http://localhost:8080/Homepage/forum');
+                    window.location.assign('http://localhost:8081/Homepage/forum');
                 })
                 .catch(error => {
                     console.log(error);
@@ -238,7 +237,7 @@ export default {
                     this.dataPost.userId = "";
                     this.dataPost.id = "";
                     this.dialogUpPost = false;
-                    window.location.assign('http://localhost:8080/Homepage/forum');
+                    window.location.assign('http://localhost:8081/Homepage/forum');
                 })
                 .catch(error => {
                     console.log(error);
@@ -260,7 +259,7 @@ export default {
                     this.dataCom.userId = "";
                     this.displaysFrmCm = false;
                     this.dialogUpCom = false;
-                    window.location.assign('http://localhost:8080/Homepage/forum');
+                    window.location.assign('http://localhost:8081/Homepage/forum');
                 })
                 .catch(error => {
                     console.log(error);
@@ -292,7 +291,7 @@ export default {
                     let rep = JSON.parse(response.data);
                     console.log(rep.message);
                     this.dataLike.liked = false;
-                    window.location.assign('http://localhost:8080/Homepage/forum');
+                    window.location.assign('http://localhost:8081/Homepage/forum');
                 })
                 .catch(error => {
                     console.log(error);

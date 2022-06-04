@@ -16,8 +16,8 @@
             
 
             <v-card-actions>
-                <v-btn  :disabled="!valid" class="success" @click="sendPost">Post</v-btn>
-                <v-btn text href="/Homepage/Forum" color="black">Cancel</v-btn>
+                <v-btn  :disabled="!valid" rounded class="primary" @click="sendPost">Post</v-btn>
+                <v-btn text href="/Homepage/Forum" rounded color="black">Cancel</v-btn>
             </v-card-actions>
 
         </v-card>

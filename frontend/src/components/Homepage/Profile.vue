@@ -1,9 +1,9 @@
 <template>
     <div id="profile" class="d-flex justify-center align-content-center">
         <top-header/>
-        <v-card class="profCard" height="70%" raised>
+        <v-card class="profCard" height="45%" raised>
             
-            <image-upload/>
+            
             
             <v-card-title class="my-3 justify-center">
                 <h1>My profile</h1>
@@ -64,7 +64,6 @@
 <script>
 
 import TopHeader from "./TopHeader"
-import ImageUpload from "./imgUp/ImageUpload"
 import axios from "axios"
 
 export default {
@@ -125,7 +124,7 @@ export default {
                 let rep = JSON.parse(response.data);
                 console.log(rep);
                 this.dialogUp = false;
-                window.location.assign('http://localhost:8080/Homepage/Profile');
+                window.location.assign('http://localhost:8081/Homepage/Profile');
             })
             .catch(error => {
                 console.log(error);
@@ -151,7 +150,6 @@ export default {
     
     components: {
         "top-header": TopHeader,
-        "image-upload": ImageUpload,
 
     }
 }

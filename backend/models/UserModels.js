@@ -2,12 +2,13 @@ const connectdb = require('../connectdb.js');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const env = require('dotenv').config();
 
 class UserModels {
     constructor() {
     }
     signup(sqlInserts){
-        let sql = 'INSERT INTO users VALUES(?, ?, ?, ?, NULL, NULL)';
+        let sql = 'INSERT INTO users VALUES(NULL, ?, ?, ?, ?, NULL)';
         sql = mysql.format(sql, sqlInserts);
         return new Promise((resolve, reject) =>{
             connectdb.query(sql, function(err, result){
@@ -34,7 +35,7 @@ class UserModels {
                                 token: jwt.sign(
                                     { userId: result[0].id,
                                     moderation: result[0].moderation },
-                                    'RANDOM_TOKEN_SECRET',
+                                    process.env.secret_token,
                                     { expiresIn: '24h' } 
                                 ),
                                 moderation: result[0].moderation
