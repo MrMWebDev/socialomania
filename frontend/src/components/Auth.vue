@@ -40,15 +40,15 @@
 
 <style lang="scss">
     #auth {
-        background: no-repeat center url("../assets/images/building.png") ;
+        background: no-repeat url("../assets/images/building.png") ;
         background-size: cover;
         display: flex;
         flex-direction: row;
         height: 100%;
     }
     .header-logo{
-        height: 95%;
-        width: 80%;
+        // height: 75%;
+        width: 60%;
     }
     .authHeader {
         display: flex;
@@ -57,16 +57,16 @@
         align-items: center;
     }
     .auth {
-        
+        min-height: 70%;
         &__boutons{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
-            margin-top: 15%;
+            margin-top: 10%;
             margin-bottom: 2%;
             &--ind{
-                // margin-top: 5%;
+                margin-top: 5%;
                 width: 150px ;
                 
             }

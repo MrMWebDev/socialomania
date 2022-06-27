@@ -13,7 +13,8 @@ exports.getAllPosts = (req, res, next) => {
             res.status(200).json(JSON.stringify(response));
         });
 }
-exports.createPost = (req, res, next) => { 
+exports.createPost = (req, res, next) => {
+    let image = (req.file) ? `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` : "";
     let title = req.body.title;
     let userId = req.body.userId;
     let content = req.body.content;
@@ -22,6 +23,11 @@ exports.createPost = (req, res, next) => {
         .then((response) => {
             res.status(201).json(JSON.stringify(response));
         })
+    let sql = `INSERT INTO post (text, imageUrl, date, authorId) VALUES (?,?,?,?);`;
+    connectdb.execute(sql, [post.text, post.imageUrl, post.date, post.authorId], function (err, result) {
+            if (err) throw err;
+            res.status(201).json({ message: `Post ajouté` });
+    })
 }
 exports.updatePost = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];

@@ -97,7 +97,7 @@ export default {
         flex-direction: row;
         top: 5%;
         width: 350px;
-        height: 200px;
+        height: 100px;
         text-align: center;
     }
 </style>

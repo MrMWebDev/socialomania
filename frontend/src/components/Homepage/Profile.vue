@@ -1,9 +1,21 @@
 <template>
     <div id="profile" class="d-flex justify-center align-content-center">
         <top-header/>
-        <v-card class="profCard" height="45%" raised>
+        <v-card class="profCard" height="50%" raised>
             
-            
+            <v-avatar size="100" class="avatar">
+                <!-- <img
+                    src="../../assets/images/avatar.png"
+                    alt="John"
+                > -->
+                <v-file-input
+                    :rules="rules"
+                    accept="image/png, image/jpeg, image/bmp"
+                    placeholder="Pick an avatar"
+                    prepend-icon="mdi-camera"
+                    label="Avatar"
+                ></v-file-input>
+            </v-avatar>
             
             <v-card-title class="my-3 justify-center">
                 <h1>My profile</h1>
@@ -158,11 +170,10 @@ export default {
 <style lang="scss">
     .profCard {
         margin-top: 15%;
-
     }
-    .logo{
+    .avatar{
         margin-top: 5%;
-        margin-left: 30%;
+        margin-left: 28%;
     }
     #profile {
         background: no-repeat center url("../../assets/images/building.png");

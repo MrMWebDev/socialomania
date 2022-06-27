@@ -144,7 +144,6 @@ export default {
             dataPost: {
                 id: "",
                 title:"",
-                imageUrl:"",
                 content:"",
                 userId:"",
             },

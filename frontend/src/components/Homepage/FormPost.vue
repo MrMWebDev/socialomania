@@ -10,6 +10,13 @@
             <v-card-text>
                 <v-form ref="form" class="ma-3" v-model="valid" >
                     <v-text-field v-model="dataPost.title" color="black" :rules="titleRules" :counter="50" label="Title" autofocus required></v-text-field>
+                    <v-file-input v-model="files" placeholder="Upload your documents" label="File input" multiple prepend-icon="mdi-paperclip">
+                        <template v-slot:selection="{ text }">
+                        <v-chip small label color="primary">
+                            {{ text }}
+                        </v-chip>
+                        </template>
+                    </v-file-input>
                     <v-textarea v-model="dataPost.content" color="black" :rules="contentRules" label="Message" required></v-textarea>
                 </v-form>
             </v-card-text>
@@ -37,6 +44,7 @@ export default {
                 v => (v && v.length <= 50) || 'The title must be less than 50 characters',
 
             ],
+            files: [],
             contentRules: [
                 v => !!v || 'Write your message',
             ],

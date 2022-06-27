@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken');
 const connectdb = require('../connectdb.js');
 const mysql = require('mysql');
