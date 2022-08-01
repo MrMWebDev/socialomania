@@ -13,22 +13,52 @@ exports.getAllPosts = (req, res, next) => {
             res.status(200).json(JSON.stringify(response));
         });
 }
-exports.createPost = (req, res, next) => {
-    let image = (req.file) ? `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` : "";
-    let title = req.body.title;
+exports.createPost = (req, res, next) => { 
+    const image = (req.file) ? `${req.protocol}://${req.get('host')}/images/post/${req.file.filename}` : "1";
+
     let userId = req.body.userId;
+    let title = req.body.title;
+    let imageUrl = image;
     let content = req.body.content;
-    let sqlInserts = [userId, title, content];
+    
+    let sqlInserts = [userId, title, imageUrl, content];
+    console.log(userId, title, imageUrl, content),
     postsModels.createPost(sqlInserts)
         .then((response) => {
             res.status(201).json(JSON.stringify(response));
         })
-    let sql = `INSERT INTO post (text, imageUrl, date, authorId) VALUES (?,?,?,?);`;
-    connectdb.execute(sql, [post.text, post.imageUrl, post.date, post.authorId], function (err, result) {
-            if (err) throw err;
-            res.status(201).json({ message: `Post ajouté` });
-    })
 }
+
+// exports.createPost = (req, res) => {
+//     // let userId = req.auth;
+//     let userId = "78";
+//     if (req.file) {
+//       const posts = JSON.parse(JSON.stringify(req.body));
+//       const title = posts.title; 
+//       const content = posts.content;
+//       const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+//       connectdb.query("INSERT INTO posts (title, content, imageUrl, userId) VALUES (?, ?, ?, ?)", [title, content, imageUrl, userId], (error, result) => {
+//         console.log("Post1 created");
+//         if (!error) {
+//           return res.status(201).json({ message: "The post has just been added!" });
+//         }
+//         res.status(400).json({ error });
+//       })
+//     }
+//     else {
+      
+//       const title = req.body.title;
+//       const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+//       const content = req.body.content;
+//     //   const likes = "1"
+//       console.log(title, content, userId, imageUrl),
+//       connectdb.query("INSERT INTO posts (userId, title, imageUrl, content) VALUES (?, ?, ?, ?)", [title, content, userId, imageUrl],
+//         console.log(title, content, userId, imageUrl),
+//         console.log("Post2 created"),
+//       )
+//     }
+//   }
+
 exports.updatePost = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, process.env.secret_token);

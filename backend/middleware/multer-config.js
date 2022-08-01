@@ -1,5 +1,6 @@
 const multer = require("multer")
 
+// Set extension for file name
 const MIME_TYPES = {
     "image/jpg": "jpg",
     "image/jpeg": "jpg",
@@ -7,15 +8,18 @@ const MIME_TYPES = {
     "image/gif": "gif"
 }
 
+// Call "diskStorage()"" method from multer module
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, "images/post")
+    // Set destination
+    destination: (req, file, cb) => {
+        cb(null, "images/post")
     },
-    filename: (req, file, callback) => {
+    // Set file name
+    filename: (req, file, cb) => {
         const nameExt = file.originalname.split(".")[0]
         const name = nameExt.split(" ").join("_")
         const extension = MIME_TYPES[file.mimetype]
-        callback(null, name + Date.now() + "." + extension)
+        cb(null, name + Date.now() + "." + extension)
     }
 })
 
